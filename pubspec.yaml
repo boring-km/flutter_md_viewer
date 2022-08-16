@@ -1,9 +1,9 @@
 name: flutter_md_viewer
-description: Markdown만 작성해도 웹페이지가 생성되는 웹은 가능한가?
+description: .md 파일로 Web Page 자동 생성하기
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.2+2
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
@@ -16,6 +16,7 @@ dependencies:
   flutter_markdown: ^0.6.10+3
   flutter_highlighter: ^0.1.1
   google_fonts: ^3.0.1
+  very_good_analysis: ^3.0.1
 
 dev_dependencies:
   flutter_test:

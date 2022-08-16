@@ -14,7 +14,8 @@ class CodeElementBuilder extends MarkdownElementBuilder {
     var language = '';
 
     if (element.attributes['class'] != null) {
-      String lg = element.attributes['class'] as String;
+      // ignore: cast_nullable_to_non_nullable
+      final lg = element.attributes['class'] as String;
       language = lg.substring(9);
     }
     return SizedBox(
