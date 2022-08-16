@@ -1,16 +1,16 @@
 # flutter_md_viewer
 
-Markdown만 작성해도 웹페이지가 생성되는 웹은 가능한가?
+.md 파일만 작성해도 웹페이지가 생성되는 Flutter Web 만들어보기
 
-## Getting Started
+### Why
+- [Hexo](https://hexo.io/ko/index.html)에서 지원하는 기능을 내가 좀더 유연하게 UI를 그릴 수 있는 Flutter로 그리면 좋을 것 같아서 시작
 
-This project is a starting point for a Flutter application.
+### Goal
+- Markdown 파일을 커밋하는 것만으로 Flutter Web에서 반응하여 페이지가 추가될 수 있도록 구현해보기
+- 지금 매일 성경 QT를 적고 있는 블로그를 flutter_md_viewer로 대체하기
+- 기존의 Hexo Web에서 제공하던 기능을 최대한 살려보고, 추가도 해보기
 
-A few resources to get you started if this is your first Flutter project:
+<!--suppress ALL -->
+<img alt="image error" src="images/screenshots/20220816.png" width="80%" height="80%"/>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+~~너무 삽질 같으면 접고...~~
