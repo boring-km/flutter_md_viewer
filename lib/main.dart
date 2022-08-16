@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_md_viewer/code_element_builder.dart';
+// ignore: depend_on_referenced_packages
 import 'package:markdown/markdown.dart';
 
 void main() {
@@ -13,7 +15,7 @@ void main() {
             // bodyText2: TextStyle(fontSize: 12),
             ),
       ),
-      home: MarkdownScreen(),
+      home: const MarkdownScreen(),
     ),
   );
 }
@@ -33,6 +35,7 @@ class MarkdownScreen extends StatelessWidget {
                 if (snapshot.hasData) {
                   return Markdown(
                     data: snapshot.data!,
+                    selectable: true,
                     extensionSet: ExtensionSet(
                       ExtensionSet.gitHubFlavored.blockSyntaxes,
                       [
@@ -40,6 +43,9 @@ class MarkdownScreen extends StatelessWidget {
                         ...ExtensionSet.gitHubFlavored.inlineSyntaxes
                       ],
                     ),
+                    builders: {
+                      'code': CodeElementBuilder(),
+                    },
                   );
                 }
                 return const Center(
