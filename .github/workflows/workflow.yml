@@ -20,7 +20,7 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
         # 1. change path which exist lib/main.dart
-        working-directory: ./flutter_md_viewer
+        working-directory: ../flutter_md_viewer
       - run: |
           # 2. change path to [existed lib/main.dart path]/build/web
           cd flutter_md_viewer/build/web
