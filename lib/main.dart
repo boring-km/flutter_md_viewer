@@ -21,7 +21,7 @@ void main() {
 }
 
 class MarkdownScreen extends StatelessWidget {
-  const MarkdownScreen({super.key});
+  const MarkdownScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
