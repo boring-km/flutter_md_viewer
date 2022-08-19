@@ -24,6 +24,7 @@ jobs:
       - run: |
           # 2. change path to [existed lib/main.dart path]/build/web
           cd ./build/web
+          ls
           git init
            # 3. change your email
           git config --global user.email kms0644804@naver.com
@@ -33,6 +34,7 @@ jobs:
           # 5. change your repository
           git remote add origin https://github.com/boring-km/flutter_md_viewer.git 
           git checkout -b gh-pages
+          git add .
           git add --all
           git commit -m "update"
           git push origin gh-pages -f
