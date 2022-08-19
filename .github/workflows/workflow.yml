@@ -23,7 +23,7 @@ jobs:
         working-directory: ../flutter_md_viewer
       - run: |
           # 2. change path to [existed lib/main.dart path]/build/web
-          cd flutter_md_viewer/build/web
+          cd ./build/web
           git init
            # 3. change your email
           git config --global user.email kms0644804@naver.com
