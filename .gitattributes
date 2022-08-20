@@ -1,0 +1,3 @@
+# git attribute 작성 참고
+# https://github.com/github/linguist/blob/master/docs/overrides.md#using-gitattributes
+*.html linguist-vendored=false
