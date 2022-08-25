@@ -3,10 +3,12 @@ import 'package:flutter_md_viewer/data/md_loader.dart';
 
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel() {
-    _loadPages();
+    loadPages();
   }
+  List<String> files = [];
 
-  Future<List<String>> _loadPages() async {
-    return MdLoader.getFiles();
+  Future<void> loadPages() async {
+    files = await MdLoader.getFiles();
+    notifyListeners();
   }
 }

@@ -1,8 +1,11 @@
+import 'package:flutter_md_viewer/views/home_view.dart';
+
 class Routes {
-  static const home = '/home';
-  static const all = '/all';
+  static final routes = {
+    Pages.home: (context) => const HomeView(),
+  };
 }
 
 class Pages {
-  static final pages = [];
+  static const home = '/home';
 }
