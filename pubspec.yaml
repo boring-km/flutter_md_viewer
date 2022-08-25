@@ -18,6 +18,9 @@ dependencies:
   google_fonts: ^3.0.1
   very_good_analysis: ^3.0.1
 
+  provider: ^6.0.3
+  logger:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -29,5 +32,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
-
+    - pages/
+    - page_index.md
