@@ -33,4 +33,5 @@ flutter:
 
   assets:
     - pages/
+    - pages/test/
     - page_index.md

@@ -20,6 +20,17 @@ class MdLoader {
     return resultList;
   }
 
+  static Future<List<String>> getTestFiles() async {
+    final indexFile = await rootBundle.loadString('./page_index.md');
+    final files = _findFiles(indexFile);
+    final resultList = <String>[];
+    for (final fileString in files) {
+      final file = _removeBracket(fileString);
+      resultList.add(await rootBundle.loadString(file));
+    }
+    return resultList;
+  }
+
   static Iterable<RegExpMatch> _findFiles(String indexFile) =>
       RegExp(r'\((.*?)\)').allMatches(indexFile);
 

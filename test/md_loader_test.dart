@@ -8,11 +8,12 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('모든 Markdown 파일을 불러와서 테스트 md 파일이 잘 불러와졌는지 테스트', () async {
-    final testFiles = await MdLoader.getFiles();
+    final testFiles = await MdLoader.getTestFiles();
 
     for (var i = 0; i < testFiles.length; i++) {
       final target = testFiles[i];
-      final expected = await rootBundle.loadString('./pages/test${i + 1}.md');
+      final expected =
+          await rootBundle.loadString('./pages/test/test${i + 1}.md');
       expect(target, expected);
     }
   });
