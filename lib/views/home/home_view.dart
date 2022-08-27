@@ -10,7 +10,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final viewModel = context.watch<HomeViewModel>();
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
