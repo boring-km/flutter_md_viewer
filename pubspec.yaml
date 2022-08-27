@@ -19,7 +19,13 @@ dependencies:
   very_good_analysis: ^3.0.1
 
   provider: ^6.0.3
-  logger:
+  logger: ^1.1.0
+  lottie: ^1.4.2
+
+  # animated text kit
+  animated_text_kit: ^4.2.2
+
+  flutter_staggered_grid_view: ^0.6.2
 
 dev_dependencies:
   flutter_test:
@@ -35,3 +41,6 @@ flutter:
     - pages/
     - pages/test/
     - page_index.md
+    - assets/
+    - assets/animations/
+    - assets/animations/images/

@@ -1,14 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_md_viewer/data/md_loader.dart';
 
-class HomeViewModel extends ChangeNotifier {
-  HomeViewModel() {
+class MarkdownViewModel extends ChangeNotifier {
+  MarkdownViewModel() {
+
     loadPages();
   }
-  List<String> files = [];
+  String file = '';
 
   Future<void> loadPages() async {
-    files = await MdLoader.getFiles();
+    file = (await MdLoader.getFiles())[0];
     notifyListeners();
   }
 }
