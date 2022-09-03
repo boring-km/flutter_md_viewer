@@ -36,7 +36,7 @@ class HomeView extends StatelessWidget {
                       child: AnimatedTextKit(
                         animatedTexts: [
                           TypewriterAnimatedText(
-                            '안녕하세요, 진강민입니다.',
+                            '안녕하세요...!',
                             speed: const Duration(milliseconds: 200),
                           )
                         ],
