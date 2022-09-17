@@ -10,7 +10,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -29,20 +28,7 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: height / 10),
-                    child: DefaultTextStyle(
-                      style: const TextStyle(fontSize: 32),
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            '안녕하세요...!',
-                            speed: const Duration(milliseconds: 200),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  buildTitleText(height),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Lottie.asset(
@@ -81,6 +67,23 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding buildTitleText(double height) {
+    return Padding(
+      padding: EdgeInsets.only(top: height / 10),
+      child: DefaultTextStyle(
+        style: const TextStyle(fontSize: 32),
+        child: AnimatedTextKit(
+          animatedTexts: [
+            TypewriterAnimatedText(
+              '안녕하세요...!',
+              speed: const Duration(milliseconds: 200),
+            )
           ],
         ),
       ),

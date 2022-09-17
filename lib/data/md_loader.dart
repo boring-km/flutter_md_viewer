@@ -3,12 +3,6 @@ import 'package:flutter/services.dart';
 class MdLoader {
   static const errorPage = './pages/error.md';
 
-  Future<Iterable<RegExpMatch>> loadNames() async {
-    final str = await rootBundle.loadString('./page_index.md');
-    final reg = RegExp(r'\[(.*?)\]');
-    return reg.allMatches(str);
-  }
-
   static Future<List<String>> getFiles() async {
     final indexFile = await rootBundle.loadString('./page_index.md');
     final files = _findFiles(indexFile);
@@ -21,7 +15,7 @@ class MdLoader {
   }
 
   static Future<List<String>> getTestFiles() async {
-    final indexFile = await rootBundle.loadString('./page_index.md');
+    final indexFile = await rootBundle.loadString('./page_test_index.md');
     final files = _findFiles(indexFile);
     final resultList = <String>[];
     for (final fileString in files) {

@@ -41,6 +41,7 @@ flutter:
     - pages/
     - pages/test/
     - page_index.md
+    - page_test_index.md
     - assets/
     - assets/animations/
     - assets/animations/images/
