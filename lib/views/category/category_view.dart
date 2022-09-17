@@ -18,7 +18,8 @@ class _CategoryViewState extends State<CategoryView> {
       final viewModel = context.read<CategoryViewModel>();
       viewModel.loadPageNames(args).then((isSuccess) {
         if (!isSuccess) {
-          print('error');
+          // FIXME
+          viewModel.goHome(context);
         }
       });
     });

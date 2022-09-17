@@ -22,7 +22,8 @@ class _MarkdownViewState extends State<MarkdownView> {
       final viewModel = context.read<MarkdownViewModel>();
       viewModel.loadPage(args).then((isSuccess) {
         if (!isSuccess) {
-          print('error');
+          // FIXME
+          // viewModel.goBack(context);
         }
       });
     });

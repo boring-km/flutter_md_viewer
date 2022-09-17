@@ -20,6 +20,14 @@ Future<void> main() async {
         ),
         initialRoute: Pages.home,
         routes: Routes.routes,
+        onGenerateRoute: (settings) {
+          if (settings.name!.contains(Pages.markdown)) {
+            return Routes.setMarkdownRoute(settings);
+          } else if (settings.name!.contains(Pages.category)) {
+            return Routes.setCategoryRoute(settings);
+          }
+          return null;
+        },
       ),
     ),
   );

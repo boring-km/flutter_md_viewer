@@ -20,7 +20,7 @@ class CategoryButton extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            Pages.category,
+            '${Pages.category}?category=$category',
             arguments: {
               'category': category,
             },

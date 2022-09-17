@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_md_viewer/data/provider/md_loader.dart';
+import 'package:flutter_md_viewer/routes.dart';
 
 class MarkdownViewModel extends ChangeNotifier {
 
@@ -7,14 +8,20 @@ class MarkdownViewModel extends ChangeNotifier {
 
   Future<bool> loadPage(Object? args) async {
     try {
-      final pageUrl = (args as Map<String, String>?)?['pageUrl'] ?? '';
-      print('pageUrl: $pageUrl');
-      content = await MdLoader.loadPage(pageUrl);
+      final pageUrl = (args as Map?)?['pageUrl'] as String? ?? '';
+      content = await MdLoader.loadPage(pageUrl.replaceAll('_', '/'));
       notifyListeners();
       return true;
     } catch (error) {
       print(error.toString());
       return false;
     }
+  }
+
+  void goBack(BuildContext context) {
+    Navigator.pushReplacementNamed(
+      context,
+      Pages.home,
+    );
   }
 }
