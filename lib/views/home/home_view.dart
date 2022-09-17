@@ -1,9 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_md_viewer/views/home/home_view_model.dart';
 import 'package:flutter_md_viewer/views/widgets/category_button.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -12,6 +13,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    final viewModel = context.watch<HomeViewModel>();
 
     return Scaffold(
       body: SafeArea(
@@ -29,39 +31,26 @@ class HomeView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   buildTitleText(height),
+                  SizedBox(
+                    height: height / 15,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: viewModel.categoryList.length,
+                      itemBuilder: (context, i) {
+                        return CategoryButton(
+                          category: viewModel.categoryList[i],
+                          color: Colors.amberAccent,
+                        );
+                      },
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Lottie.asset(
                       'assets/animations/67025-business-analysis.json',
-                      width: width / 2,
-                      height: height / 2,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: StaggeredGrid.count(
-                      crossAxisCount: 20,
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 20,
-                      axisDirection: AxisDirection.down,
-                      children: const [
-                        StaggeredGridTile.count(
-                          crossAxisCellCount: 2,
-                          mainAxisCellCount: 1,
-                          child: CategoryButton(
-                            text: 'Bible',
-                            color: Colors.amberAccent,
-                          ),
-                        ),
-                        StaggeredGridTile.count(
-                          crossAxisCellCount: 2,
-                          mainAxisCellCount: 1,
-                          child: CategoryButton(
-                            text: 'Test',
-                            color: Colors.lightGreenAccent,
-                          ),
-                        ),
-                      ],
+                      width: width / 3,
+                      height: height / 3,
                     ),
                   ),
                 ],
@@ -75,7 +64,7 @@ class HomeView extends StatelessWidget {
 
   Padding buildTitleText(double height) {
     return Padding(
-      padding: EdgeInsets.only(top: height / 10),
+      padding: EdgeInsets.only(top: height / 10, bottom: height / 30),
       child: DefaultTextStyle(
         style: const TextStyle(fontSize: 32),
         child: AnimatedTextKit(

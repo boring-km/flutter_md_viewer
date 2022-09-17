@@ -4,40 +4,48 @@ import 'package:flutter_md_viewer/routes.dart';
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
     super.key,
-    required this.text,
+    required this.category,
     required this.color,
   });
 
-  final String text;
+  final String category;
   final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          Pages.markdown,
-          arguments: {
-            'type': text,
-          },
-        );
-      },
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.horizontal(
-            left: Radius.circular(16),
-            right: Radius.circular(16),
+    final height = MediaQuery.of(context).size.height;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            Pages.category,
+            arguments: {
+              'type': category,
+            },
+          );
+        },
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.horizontal(
+              left: Radius.circular(16),
+              right: Radius.circular(16),
+            ),
           ),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(
+                category,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
         ),

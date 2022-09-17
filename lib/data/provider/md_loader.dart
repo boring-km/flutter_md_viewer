@@ -1,41 +1,37 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
+import 'package:flutter_md_viewer/core/file_utils.dart';
 import 'package:flutter_md_viewer/data/model/page.dart';
 
 class MdLoader {
-  static const errorPage = './pages/error.md';
+  static const _indexFilePath = './page_index.md';
+  static final _loadedPageList = <MdPage>[];
 
-  static Future<List<String>> getFiles() async {
-    final indexFile = await rootBundle.loadString('./page_index.md');
-    final files = _findFiles(indexFile);
-    final resultList = <String>[];
-    for (final fileString in files) {
-      final file = _removeBracket(fileString);
-      resultList.add(await rootBundle.loadString(file));
-    }
-    return resultList;
-  }
+  static Future<List<MdPage>> loadPages() async {
+    // 새로 불러오기 위함
+    _loadedPageList.clear();
 
-  static Future<List<MdPage>> getTestFiles() async {
-    final indexFile = await rootBundle.loadString('./page_test_index.md');
-    final files = _findFiles(indexFile);
-    final resultList = <MdPage>[];
-    for (final fileString in files) {
-      final file = _removeBracket(fileString);
-      final arr = file.split('/');
-      final category = arr[arr.length - 2];
-      resultList.add(
+    final indexFile = await rootBundle.loadString(_indexFilePath);
+    for (final fileString in findFiles(indexFile)) {
+      final page = removeBracket(fileString);
+      _loadedPageList.add(
         MdPage(
-          category: category,
-          markdownContent: await rootBundle.loadString(file),
+          category: getCategory(page),
+          markdownContent: await rootBundle.loadString(page),
         ),
       );
     }
-    return resultList;
+    return _loadedPageList;
   }
 
-  static Iterable<RegExpMatch> _findFiles(String indexFile) =>
-      RegExp(r'\((.*?)\)').allMatches(indexFile);
-
-  static String _removeBracket(RegExpMatch fileString) =>
-      fileString.group(0)?.replaceAll(RegExp('[()]'), '') ?? errorPage;
+  Future<List<MdPage>> getFilesWithCategory(String category) async {
+    final resultList = <MdPage>[];
+    for (final page in _loadedPageList) {
+      if (page.category == category) {
+        resultList.add(page);
+      }
+    }
+    return resultList;
+  }
 }
