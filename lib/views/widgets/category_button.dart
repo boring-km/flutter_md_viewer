@@ -13,7 +13,6 @@ class CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -23,7 +22,7 @@ class CategoryButton extends StatelessWidget {
             context,
             Pages.category,
             arguments: {
-              'type': category,
+              'category': category,
             },
           );
         },

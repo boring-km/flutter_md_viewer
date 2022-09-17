@@ -1,9 +1,9 @@
 class MdPage {
   MdPage({
     required this.category,
-    required this.markdownContent,
+    required this.pageUrl,
   });
 
   final String category;
-  final String markdownContent;
+  final String pageUrl;
 }

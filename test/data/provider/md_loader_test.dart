@@ -17,7 +17,7 @@ void main() {
       if (i > 1) category = 'test2';
       final expected =
           await rootBundle.loadString('./pages/$category/test${i + 1}.md');
-      expect(target.markdownContent, expected);
+      expect(target.pageUrl, expected);
     }
   });
 
@@ -39,7 +39,7 @@ void main() {
       final expected = await rootBundle.loadString(
         './pages/test2/test${i + 3}.md',
       );
-      expect(target.markdownContent, expected);
+      expect(target.pageUrl, expected);
     }
   });
 }
@@ -55,7 +55,7 @@ Future<List<MdPage>> getTestFiles() async {
     resultList.add(
       MdPage(
         category: category,
-        markdownContent: await rootBundle.loadString(file),
+        pageUrl: await rootBundle.loadString(file),
       ),
     );
   }
@@ -74,7 +74,7 @@ Future<List<MdPage>> getTestFilesWithCategory(String category) async {
       resultList.add(
         MdPage(
           category: category,
-          markdownContent: await rootBundle.loadString(file),
+          pageUrl: await rootBundle.loadString(file),
         ),
       );
     }
