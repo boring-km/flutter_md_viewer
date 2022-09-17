@@ -40,6 +40,7 @@ flutter:
   assets:
     - pages/
     - pages/test/
+    - pages/test2/
     - page_index.md
     - page_test_index.md
     - assets/

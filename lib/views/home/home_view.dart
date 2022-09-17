@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_md_viewer/ui/category_button.dart';
+import 'package:flutter_md_viewer/views/widgets/category_button.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'package:lottie/lottie.dart';

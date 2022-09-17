@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_md_viewer/data/model/page.dart';
 
 class MdLoader {
   static const errorPage = './pages/error.md';
@@ -14,13 +15,20 @@ class MdLoader {
     return resultList;
   }
 
-  static Future<List<String>> getTestFiles() async {
+  static Future<List<MdPage>> getTestFiles() async {
     final indexFile = await rootBundle.loadString('./page_test_index.md');
     final files = _findFiles(indexFile);
-    final resultList = <String>[];
+    final resultList = <MdPage>[];
     for (final fileString in files) {
       final file = _removeBracket(fileString);
-      resultList.add(await rootBundle.loadString(file));
+      final arr = file.split('/');
+      final category = arr[arr.length - 2];
+      resultList.add(
+        MdPage(
+          category: category,
+          markdownContent: await rootBundle.loadString(file),
+        ),
+      );
     }
     return resultList;
   }

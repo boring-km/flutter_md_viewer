@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_md_viewer/data/md_loader.dart';
+import 'package:flutter_md_viewer/data/provider/md_loader.dart';
 
 class MarkdownViewModel extends ChangeNotifier {
   MarkdownViewModel() {
