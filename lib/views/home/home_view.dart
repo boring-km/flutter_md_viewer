@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_md_viewer/views/home/home_view_model.dart';
 import 'package:flutter_md_viewer/views/widgets/category_button.dart';
-
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +31,7 @@ class HomeView extends StatelessWidget {
                 children: [
                   buildTitleText(height),
                   SizedBox(
-                    height: height / 15,
+                    height: getCategoryHeight(height),
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
@@ -61,6 +60,9 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+
+  double getCategoryHeight(double height) =>
+      height / 15 < 90 ? 90 : height / 15;
 
   Padding buildTitleText(double height) {
     return Padding(

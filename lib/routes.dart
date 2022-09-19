@@ -10,13 +10,18 @@ class Routes {
     Pages.markdown: (context) => const MarkdownView(),
   };
 
-  static MaterialPageRoute<dynamic> setCategoryRoute(RouteSettings settings) {
+  static Route<dynamic>? setCategoryRoute(RouteSettings settings) {
     final category =
-    settings.name?.replaceAll('${Pages.category}?category=', '');
-    print('cate: $category');
-    return MaterialPageRoute(
-      builder: (context) {
+        settings.name?.replaceAll('${Pages.category}?category=', '');
+    return PageRouteBuilder(
+      pageBuilder: (c, _, __) {
         return const CategoryView();
+      },
+      transitionsBuilder: (context, animation, sec, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
       },
       settings: RouteSettings(
         name: settings.name,
@@ -27,12 +32,17 @@ class Routes {
     );
   }
 
-  static MaterialPageRoute<dynamic> setMarkdownRoute(RouteSettings settings) {
-    final pageUrl =
-    settings.name?.replaceAll('${Pages.markdown}?pageUrl=', '');
-    return MaterialPageRoute(
-      builder: (context) {
+  static Route<dynamic>? setMarkdownRoute(RouteSettings settings) {
+    final pageUrl = settings.name?.replaceAll('${Pages.markdown}?pageUrl=', '');
+    return PageRouteBuilder(
+      pageBuilder: (c, _, __) {
         return const MarkdownView();
+      },
+      transitionsBuilder: (context, animation, sec, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
       },
       settings: RouteSettings(
         name: settings.name,
@@ -47,5 +57,5 @@ class Routes {
 class Pages {
   static const home = '/';
   static const category = '/category';
-  static const markdown = '/category/markdown';
+  static const markdown = '/markdown';
 }

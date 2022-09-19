@@ -19,7 +19,7 @@ class _CategoryViewState extends State<CategoryView> {
       viewModel.loadPageNames(args).then((isSuccess) {
         if (!isSuccess) {
           // FIXME
-          viewModel.goHome(context);
+          // viewModel.goHome(context);
         }
       });
     });
@@ -47,7 +47,10 @@ class _CategoryViewState extends State<CategoryView> {
                     child: Container(
                       height: 50,
                       color: Colors.deepOrangeAccent,
-                      child: Text(viewModel.pages[i].pageUrl, style: TextStyle(color: Colors.black),),
+                      child: Text(
+                        viewModel.pages[i].pageUrl,
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
                 );

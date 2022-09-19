@@ -13,7 +13,6 @@ class CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       child: GestureDetector(
@@ -26,7 +25,8 @@ class CategoryButton extends StatelessWidget {
             },
           );
         },
-        child: DecoratedBox(
+        child: Container(
+          height: 40,
           decoration: BoxDecoration(
             color: color,
             borderRadius: const BorderRadius.horizontal(
